@@ -9,11 +9,11 @@ public with sharing class HttpClient {
     }
 
     public HttpResponse get(){
-        return send('GET',null);
+        return send(ConstantsService.INTEGRATION.CALLOUT_METHOD.GET,null);
     }
 
     public HttpResponse post(String body){
-        return send('POST',body);
+        return send(ConstantsService.INTEGRATION.CALLOUT_METHOD.POST,body);
     }
 
     private HttpResponse send(String method , String body){
