@@ -1,6 +1,6 @@
 public without sharing class ProductSelector {
 
-private Static final ProductSelector INSTANCE = new ProductSelector();
+private static final ProductSelector INSTANCE = new ProductSelector();
 public static ProductSelector getInstance(){
     return INSTANCE;
 }
