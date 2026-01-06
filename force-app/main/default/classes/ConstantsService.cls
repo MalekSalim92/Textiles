@@ -5,4 +5,10 @@ public with sharing class ConstantsService {
             return IntegrationConstants.INSTANCE;
         }
     }
+
+    public static final ProductConstants PRODUCT{
+        get{
+            return ProductConstants.INSTANCE;
+        }
+    }
 }
