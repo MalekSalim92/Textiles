@@ -3,8 +3,6 @@ public with sharing class SupabaseClient {
 
 public static List<SupabaseWrapper> getRecords(String tableName){
     HttpResponse response = getResponse(tableName);
-    List<SupabaseWrapper> r = parseResponse(response);
-    System.debug('r >>>> '  + r);
     return parseResponse(response);
 }
 
