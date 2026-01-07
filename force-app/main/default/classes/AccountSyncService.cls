@@ -1,17 +1,17 @@
 public with sharing class AccountSyncService {
 
-  
     public static void insertSupabaseAccounts(){
-        List<SupabaseClient.SupabaseWrapper> supabaseAccounts = SupabaseClient.getRecords('Client');
+        List<SupabaseClient.SupabaseWrapper> supabaseAccounts = SupabaseClient.getRecords(ConstantsService.INTEGRATION.TABLE_MAPPING.CLIENT);
         List<Account> accounts = buildAccounts(supabaseAccounts);
-        insert accounts;
+        upsert accounts Integration_Id__c;
     }
 
     private static List<Account> buildAccounts(List<SupabaseClient.SupabaseWrapper> supabaseAccounts){
         List<Account> accounts = new List<Account>();
         for(SupabaseClient.SupabaseWrapper supabaseAccount : supabaseAccounts){
             accounts.add(new Account(
-                Name = supabaseAccount.Name
+                Name = supabaseAccount.name,
+                Integration_Id__c = 'SUPA-' + supabaseAccount.Id
             ));
         }
         return accounts;

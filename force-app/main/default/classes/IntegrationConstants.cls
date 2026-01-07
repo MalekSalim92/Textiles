@@ -3,6 +3,8 @@ public with sharing class IntegrationConstants {
     public final CalloutMethod CALLOUT_METHOD = new CalloutMethod();
     public final NamedCredential NAMED_CREDENTIAL = new NamedCredential();
     public final Path PATH = new Path();
+    public final TableMapping TABLE_MAPPING = new TableMapping();
+    
     public class CalloutMethod{
         public final String GET = 'GET';
         public final String POST = 'POST';
@@ -16,5 +18,9 @@ public with sharing class IntegrationConstants {
 
     public class Path{
         public final String SUPABASE_PATH = '/rest/v1/';
+    }
+
+    public class TableMapping{
+        public final String CLIENT = 'Client';
     }
     }
