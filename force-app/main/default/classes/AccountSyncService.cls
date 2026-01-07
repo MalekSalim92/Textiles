@@ -1,6 +1,6 @@
 public with sharing class AccountSyncService {
 
-    public static void insertSupabaseAccounts(){
+    public static void insertAccountsToSalesforce(){
         List<SupabaseClient.SupabaseWrapper> supabaseAccounts = SupabaseClient.getRecords(ConstantsService.INTEGRATION.TABLE_MAPPING.CLIENT);
         List<Account> accounts = buildAccounts(supabaseAccounts);
         upsert accounts Integration_Id__c;
@@ -16,4 +16,9 @@ public with sharing class AccountSyncService {
         }
         return accounts;
     }
+    
+    public static void insertAccountsToSupabase(List<Account> accountsToInsert){
+        SupabaseClient.postRecords(accountsToInsert, ConstantsService.INTEGRATION.TABLE_MAPPING.CLIENT);
+    }
+    
 }

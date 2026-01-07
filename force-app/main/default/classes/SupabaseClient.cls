@@ -36,8 +36,8 @@ public static void postRecords(List<SObject> recordsToInsert, String tableName){
 private static List<Map<String,Object>> buildPayload(List<SObject> recordsToInsert){
 
     List<Map<String,Object>> payload = new List<Map<String,Object>>();
-    Map<String,Object> fields = new Map<String,Object>();
     for(SObject record : recordsToInsert){
+        Map<String,Object> fields = new Map<String,Object>();
         fields.put('name',record.get('Name'));
         payload.add(fields);
     }
@@ -48,7 +48,7 @@ private static List<Map<String,Object>> buildPayload(List<SObject> recordsToInse
 public class SupabaseWrapper{
     public Integer id;
     public String created_at;
-    public String namew;
+    public String name;
 }
 
 public class SupabaseException extends Exception{}
