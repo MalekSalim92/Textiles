@@ -9,8 +9,8 @@ public static List<SupabaseWrapper> getRecords(String tableName){
 }
 
 private static HttpResponse getResponse (String tableName){
-    String path = '/rest/v1/' + tableName;
-    HttpClient client = new HttpClient('Supabase_API',path);
+    String path = ConstantsService.INTEGRATION.PATH.SUPABASE_PATH + tableName;
+    HttpClient client = new HttpClient(ConstantsService.INTEGRATION.NAMED_CREDENTIAL.SUPABASE,path);
     HttpResponse response =  client.get();
     if(response.getStatusCode() < 200 || response.getStatusCode() >= 300){
         throw new SupabaseException ('Supabase API error : ' + response.getStatusCode());
